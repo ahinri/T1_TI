@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api, :defaults => {:format => :json} do #api/URI
     post  "/validarFirma",    to: "tarea1#validarFirma"
     get "/status",            to: "tarea1#status"
+  end
     
 
 
