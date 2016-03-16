@@ -8,6 +8,6 @@ class Tarea1Controller < ApplicationController
  	end
 
  	def status
-    	render text: "status"
+    	render text: "aqui va el status"
  	end
 end
