@@ -4,11 +4,23 @@ class Tarea1Controller < ApplicationController
  	end
 
  	def validarFirma
- 		mensaje = params[:mensaje]
- 		hash = params[:hash].downcase
- 		require 'digest'
-		digest = Digest::SHA256.hexdigest mensaje
-    	render json: {"mensaje":mensaje,"valido": (digest==hash)}
+ 		if(params.has_key?(:mensaje) && params.has_key?(:hash))
+			begin
+				mensaje = params[:mensaje]
+		 		hash = params[:hash].downcase
+		 		require 'digest'
+		 		digest = Digest::SHA256.hexdigest mensaje
+	    		render json: {"mensaje":mensaje,"valido": (digest==hash)}
+	 		rescue
+	 			render json: {}, status: "500"
+	 		end
+			
+		else
+			render json: {}, status: "400"
+		end
+
+
+ 		
  	end
 
  	def status
