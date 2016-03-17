@@ -14,7 +14,6 @@ class Tarea1Controller < ApplicationController
 	 		rescue
 	 			render json: {}, status: "500"
 	 		end
-			
 		else
 			render json: {}, status: "400"
 		end
