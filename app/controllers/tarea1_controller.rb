@@ -16,6 +16,14 @@ class Tarea1Controller < ApplicationController
  	end
 
  	def status
-    	render json: "aqui va el status"
+    	mensaje = "ABCDE"
+ 		hash = "F0393FEBE8BAAA55E32F7BE2A7CC180BF34E52137D99E056C817A9C07B8F239A"
+
+ 		require 'digest'
+
+		# Compute a complete digest
+		sha256 = Digest::SHA256.new
+		digest = sha256.digest mensaje
+    	render json: {"mensaje":mensaje,"digest":digest}
  	end
 end
