@@ -4,7 +4,7 @@ class Tarea1Controller < ApplicationController
  	end
 
  	def validarFirma
- 		mensaje = params[:mensaje].downcase
+ 		mensaje = params[:mensaje]
  		hash = params[:hash].downcase
 
  		require 'digest'
