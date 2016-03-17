@@ -4,7 +4,9 @@ class Tarea1Controller < ApplicationController
  	end
 
  	def validarFirma
-    	render text: "validarFirma"
+ 		mensaje = params[:mensaje]
+ 		hash = params[:hash]
+    	render json: {"mensaje":mensaje,"valido":1==2}
  	end
 
  	def status
