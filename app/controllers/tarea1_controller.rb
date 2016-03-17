@@ -26,8 +26,9 @@ class Tarea1Controller < ApplicationController
  	def texto
  		begin
  			require 'digest'
- 			hash = Digest::SHA256.hexdigest "texto"
- 			render json: {"text":"texto","hash":hash}
+ 			texto=request.original_url.split('/').last
+ 			hash = Digest::SHA256.hexdigest texto
+ 			render json: {"text":texto,"hash":hash}
  		rescue
  			render json: {}, status: "500"
  		end
