@@ -6,7 +6,13 @@ class Tarea1Controller < ApplicationController
  	def validarFirma
  		mensaje = params[:mensaje]
  		hash = params[:hash]
-    	render json: {"mensaje":mensaje,"valido":1==2}
+
+ 		require 'digest'
+
+		# Compute a complete digest
+		sha256 = Digest::SHA256.new
+		digest = sha256.digest mensaje
+    	render json: {"mensaje":mensaje,"digest":digest}
  	end
 
  	def status
