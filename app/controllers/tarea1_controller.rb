@@ -21,10 +21,7 @@ class Tarea1Controller < ApplicationController
 
  		require 'digest'
 
-		# Compute a complete digest
-		sha256 = Digest::SHA256.new
-		digest = sha256.digest mensaje
-		digest=digest.encode("UTF-8")
+		digest = Digest::SHA256.hexdigest mensaje
     	render json: {"mensaje":mensaje,"digest":digest}
  	end
 end
