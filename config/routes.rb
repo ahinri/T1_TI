@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get "/",                   to: "tarea1#hello"
     post  "/validarFirma",    to: "tarea1#validarFirma"
     get "/status",            to: "tarea1#status"
+    get "/texto",            to: "tarea1#texto"
 
     
 

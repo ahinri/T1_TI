@@ -17,13 +17,20 @@ class Tarea1Controller < ApplicationController
 		else
 			render json: {}, status: "400"
 		end
-
-
- 		
  	end
 
  	def status
+    	render json: {}, status: "201"
+ 	end
 
-    	render json: {"mensaje":"mensaje"}
+ 	def texto
+ 		begin
+ 			require 'digest'
+ 			hash = Digest::SHA256.hexdigest "texto"
+ 			render json: {"text":"texto","hash":hash}
+ 		rescue
+ 			render json: {}, status: "500"
+ 		end
+
  	end
 end
