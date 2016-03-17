@@ -11,7 +11,7 @@ class Tarea1Controller < ApplicationController
 		digest = Digest::SHA256.hexdigest mensaje
 
 
-    	render json: {"mensaje":mensaje,"valido":digest==hash}
+    	render json: {"mensaje":mensaje,"valido": (digest==hash),"hash":hash,"digest":digest}
  	end
 
  	def status
